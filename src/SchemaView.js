@@ -8,9 +8,8 @@ import PropTypes from 'prop-types'
 
 import { HoverPopover } from './HoverPopover'
 
-import { Div, Span } from 'glamorous'
-
 import * as R from 'ramda'
+import { Box } from '@material-ui/core'
 
 const SCHEMA_TYPE_IDENTIFIER = {
   // "nested" schema types
@@ -98,13 +97,13 @@ export default class SchemaView extends React.Component {
             expanded={this.state.expanded}/>
         }
 
-        return <Div display="flex" cursor="default">
-          <Div width={TRIANGLE_EXPANDER_WIDTH} />
-          <Div display="flex" flexDirection="column">
-            <Div css={monospace}>ArrayOf</Div>
+        return <Box display="flex" cursor="default">
+          <Box width={TRIANGLE_EXPANDER_WIDTH} />
+          <Box display="flex" flexDirection="column">
+            <Box css={monospace}>ArrayOf</Box>
             <SchemaView schema={this.props.schema._elementType}/>
-          </Div>
-        </Div>
+          </Box>
+        </Box>
 
       default:
         throw new Error('invalid schema type identifier')
@@ -119,7 +118,7 @@ class LeafSchema extends React.Component {
   }
 
   render () {
-    return <Div css={monospace}>{this.props.schemaTypeName}</Div>
+    return <Box css={monospace}>{this.props.schemaTypeName}</Box>
   }
 }
 
@@ -166,32 +165,32 @@ class KeyValueSchemaView extends React.Component {
     // Non-expandable key/value pairs
     if (!this.props.onToggleExpanded) {
       return (
-        <Div display="flex" cursor="default">
-          <Div width={TRIANGLE_EXPANDER_WIDTH} />
-          <Div display="flex" flexDirection="row">
-            <Div marginRight="10px" css={keyName}
-                 onClick={this.props.onToggleExpanded}>{readableKeyName}:</Div>
-            <Div css={monospace}>{this.props.preview}</Div>
-          </Div>
-        </Div>
+        <Box display="flex" cursor="default">
+          <Box width={TRIANGLE_EXPANDER_WIDTH} />
+          <Box display="flex" flexDirection="row">
+            <Box marginRight="10px" css={keyName}
+                 onClick={this.props.onToggleExpanded}>{readableKeyName}:</Box>
+            <Box css={monospace}>{this.props.preview}</Box>
+          </Box>
+        </Box>
       )
     }
 
     const arrow = this.props.expanded ? TRIANGLE_DOWN : TRIANGLE_RIGHT
     return (
-      <Div display="flex" cursor="default">
-        <Div display="flex" width={TRIANGLE_EXPANDER_WIDTH} onClick={this.props.onToggleExpanded}>
-          <Span fontSize="9px" padding="2px">{ arrow }</Span>
-        </Div>
-        <Div display="flex" flexDirection="column">
-          <Div display="flex" flexDirection="row" onClick={this.props.onToggleExpanded}>
-            <Div marginRight="10px" css={keyName}>{readableKeyName}:</Div>
-            <Div css={monospace}>{this.props.preview}</Div>
-          </Div>
+      <Box display="flex" cursor="default">
+        <Box display="flex" width={TRIANGLE_EXPANDER_WIDTH} onClick={this.props.onToggleExpanded}>
+          <Box fontSize="9px" padding="2px">{ arrow }</Box>
+        </Box>
+        <Box display="flex" flexDirection="column">
+          <Box display="flex" flexDirection="row" onClick={this.props.onToggleExpanded}>
+            <Box marginRight="10px" css={keyName}>{readableKeyName}:</Box>
+            <Box css={monospace}>{this.props.preview}</Box>
+          </Box>
 
-          { this.props.expanded && <Div>{ this.props.schemaElement }</Div> }
-        </Div>
-      </Div>
+          { this.props.expanded && <Box>{ this.props.schemaElement }</Box> }
+        </Box>
+      </Box>
     )
   }
 }
@@ -199,9 +198,9 @@ class KeyValueSchemaView extends React.Component {
 // A Popover with a SchemaView inside
 export const SchemaPopover = props => {
   const popoverContent = (
-    <Div padding="15px">
+    <Box padding="15px">
       <SchemaView schema={props.schema}/>
-    </Div>
+    </Box>
   )
 
   return (

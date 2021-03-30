@@ -26,11 +26,11 @@ import BaseTable, { BASE_EDITOR_PROPTYPES } from './BaseTable'
 import * as Schema from './Schema';
 import { getSchemaTypeIdentifier, SchemaPopover } from './SchemaView'
 
-import { Div } from 'glamorous'
 import * as glamor from 'glamor'
 
 import Pin from './Pin'
 import { capitalize, cloneMap } from './util'
+import { Box } from '@material-ui/core';
 
 const empty = () => null;
 
@@ -73,7 +73,7 @@ export class ArrayEditor extends React.Component {
 
   static defaultProps = {
     className: '',
-    defaultRowsPerPage: 5,
+    defaultRowsPerPage: 10,
   };
 
   state = {
@@ -203,10 +203,10 @@ const toolbarSelected = glamor.css({
 const BasicToolbar = props => {
   return <Toolbar className={`${toolbarDefault}`}>
     <SchemaPopover schema={props.schema}>
-      <Div display="inline-flex" alignItems="center" cursor="default">
-        <Div marginRight="5px"><Typography variant="title">{ props.title }</Typography></Div>
+      <Box display="inline-flex" alignItems="center" cursor="default">
+        <Box marginRight="5px"><Typography variant="h6">{ props.title }</Typography></Box>
         <InfoOutlined style={{ fontSize: '1em' }}/>
-      </Div>
+      </Box>
     </SchemaPopover>
   </Toolbar>
 }
@@ -335,7 +335,7 @@ class AddObjectRow extends React.Component {
 
   // Renders the "add element" button
   addButton = () => {
-    return <Button color="primary" variant="raised" onClick={this.add}>
+    return <Button color="primary" variant="outlined" onClick={this.add}>
       New
       <Add/>
     </Button>
@@ -583,11 +583,11 @@ class ObjectCell extends React.Component {
              pinContent={this.renderEditor()}
              onScrimClick={this.state.open ? this.close : () => {}}
         >
-          <Div position="relative" display="block">
+          <Box position="relative" display="block">
             <IconButton color="default" aria-label="Edit value" onClick={this.clickEdit}>
               <Edit />
             </IconButton>
-          </Div>
+          </Box>
         </Pin>
       </TableCell>
     );
