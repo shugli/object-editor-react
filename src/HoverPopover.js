@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { delay, eventOnce, isDefined, NoOverflowModalManager } from './util'
 import * as glamor from 'glamor'
-import { Div } from 'glamorous'
 
 import Popover from '@material-ui/core/Popover'
 import * as R from 'ramda'
 
 import PropTypes from 'prop-types'
+import { Box } from '@material-ui/core'
 
 // Performance: track the most recent mouse event for all Hovers.
 const lastMousePosition = (() => {
@@ -141,9 +141,9 @@ export class HoverPopover extends React.Component {
             horizontal: 'left',
           }}
           disableRestoreFocus>
-          <Div pointerEvents="auto">
+          <Box pointerEvents="auto">
             {this.props.popoverContent}
-          </Div>
+          </Box>
         </Popover>
       </div>
     )

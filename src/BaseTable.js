@@ -13,13 +13,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import InfoOutlined from '@material-ui/icons/InfoOutlined'
 
-import { Div } from 'glamorous'
-
 import { BaseClassnames, PropTypes as Props } from './constants';
 import * as util from './util'
 
 import * as Schema from './Schema';
 import { SchemaPopover } from './SchemaView'
+import { Box } from '@material-ui/core';
 
 // Base propTypes for all editor variants
 export const BASE_EDITOR_PROPTYPES = {
@@ -73,10 +72,10 @@ class ColumnTitle extends React.Component {
     return (
       <TableCell>
         <SchemaPopover schema={this.props.schema}>
-          <Div display="inline-flex" cursor="default">
-            <Div marginRight="5px">{this.props.children}</Div>
+          <Box display="inline-flex" cursor="default">
+            <Box marginRight="5px">{this.props.children}</Box>
             <InfoOutlined style={infoOutlineFontSize}/>
-          </Div>
+          </Box>
         </SchemaPopover>
       </TableCell>
     )
