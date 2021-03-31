@@ -1,5 +1,5 @@
 {
-  "name": "object-editor-react",
+  "name": "@shugli/object-editor-react",
   "version": "1.2.0",
   "description": "A React-based JSON object editor",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b-gran/object-editor-react.git"
+    "url": "git+https://github.com/shugli/object-editor-react.git"
   },
   "author": "Bill Granfield <bill@billgranfield.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/b-gran/object-editor-react/issues"
+    "url": "https://github.com/shugli/object-editor-react/issues"
   },
-  "homepage": "https://github.com/b-gran/object-editor-react#readme",
+  "homepage": "https://github.com/shugli/object-editor-react#readme",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
